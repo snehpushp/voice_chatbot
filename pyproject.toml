@@ -1,0 +1,62 @@
+[tool.poetry]
+name = "voice-chatbot"
+version = "0.1.0"
+description = ""
+authors = ["Sneh Pushp <pushp1999satyam@gmail.com>"]
+readme = "README.md"
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+  | profiling
+)/
+'''
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 120
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.32.3"
+python-dotenv = "^1.0.1"
+pyaudio = "^0.2.14"
+pydub = "^0.25.1"
+aiohttp = "^3.10.6"
+loguru = "^0.7.2"
+langchain = "^0.3.0"
+langchain-groq = "^0.2.0"
+langchain-google-genai = "^2.0.0"
+chromadb = "^0.5.7"
+speechrecognition = "^3.10.4"
+streamlit = "^1.38.0"
+python-docx = "^1.1.2"
+langchain-chroma = "^0.1.4"
+gradio = "^4.44.0"
+pydantic-settings = "^2.5.2"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

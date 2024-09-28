@@ -1,0 +1,35 @@
+transcriber:
+  model: "distil-whisper-large-v3-en"
+  language: "en"
+  energy_threshold: 2000
+  phrase_threshold: 0.1
+  dynamic_energy_threshold: true
+
+rag:
+  embedding_model: "models/text-embedding-004"
+  contextual_model: "llama3-8b-8192"
+  chunk_size: 1000
+  chunk_overlap: 200
+
+conversation_manager:
+  model: "llama-3.1-70b-versatile"
+  max_history: 10
+
+groq:
+  rate_limit: 30
+
+deepgram_speaker:
+  model: "aura-helios-en"
+
+files:
+  files:
+    - "/path/to/your/file1.pdf"
+    - "/path/to/your/file2.txt"
+    - "/path/to/your/file3.docx"
+
+stop_keywords:
+  - "end"
+  - "stop"
+  - "thank you"
+  - "goodbye"
+  - "exit"

@@ -10,6 +10,8 @@ from langchain_groq import ChatGroq
 from loguru import logger
 from pydantic import Field, PrivateAttr
 
+from config.config import config
+
 
 class GroqLLMManager:
     _instances: Dict[str, "GroqLLMInterface"] = {}
@@ -30,7 +32,7 @@ class GroqLLMInterface(BaseChatModel):
     """
 
     model: str
-    rate_limit: int = Field(default_factory=lambda: int(os.getenv("GROQ_RATE_LIMIT", "30")))
+    rate_limit: int = config.groq.rate_limit
 
     _chat_groq: ChatGroq = PrivateAttr()
     _request_timestamps: deque = PrivateAttr()
